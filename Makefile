@@ -25,7 +25,7 @@ DIR_INCL	:=	include
 
 PUSH_SRC_FIL	=	push_swap.c handle_numbers.c index_assign.c init_and_free.c \
 					ksort.c push.c reverse.c rotate.c swap.c utils.c ksort_mini.c \
-					parse_arg.c
+					parse_arg.c utils2.c
 PUSH_SRC_DIR	=	$(addprefix $(DIR_SRCS)/, $(PUSH_SRC_FIL))
 
 # --- Object files --- #
