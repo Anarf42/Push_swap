@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:54:32 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/19 23:47:49 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:07:03 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static	void	ft_init_algorit(t_stack *stack_a, t_stack *stack_b, int count)
 		stack_of_three(stack_a);
 	else if (stack_a->size == 4)
 		stack_of_four(stack_a, stack_b);
-	else
+	else if (stack_a->size >= 5)
 		ksort(stack_a, stack_b, count);
 }
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 	if (parse_argum(argc, argv, count) == NULL)
 		ft_putendl_fd("Error", 2);
 	numbers = parse_argum(argc, argv, count);
-	if (count <= 1 || is_not_duplicate(numbers, count) == -1)
+	if (count <= 0 || is_not_duplicate(numbers, count) == -1)
 		ft_error_and_free(numbers);
 	stack_a = init_stack('a');
 	if (!stack_a)
