@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 00:15:01 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/02/19 01:53:10 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:37:09 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		tmp->next = ft_lstnew(f(lst->content));
 		if (!tmp->next)
-		{	
+		{
 			ft_lstclear(&new, del);
 			return (NULL);
 		}

@@ -6,11 +6,35 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:54:32 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/20 16:19:36 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:36:13 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	ft_is_sorted(t_stack *stack, int size)
+{
+	t_node	*current_node;
+	t_node	*current_node2;
+	int		*sorted_numbers;
+	int		i;
+	int		j;
+
+	current_node = stack->head;
+	current_node2 = stack->head;
+	sorted_numbers = malloc(sizeof(int) * size);
+	if (!sorted_numbers)
+		return (0);
+	i = 0;
+	while (i < size)
+	{
+		sorted_numbers[i] = current_node->value;
+		current_node = current_node->next;
+		i++;
+	}
+	j = ft_aux_is_sorted(stack, sorted_numbers, size);
+	return (free(sorted_numbers), j);
+}
 
 static	int	populate_stack(t_stack *stack, int *numbers, int num_count)
 {
@@ -47,7 +71,7 @@ static	void	ft_init_algorit(t_stack *stack_a, t_stack *stack_b, int count)
 	}
 	else if (stack_a->size == 3)
 		stack_of_three(stack_a);
-	else if (stack_a->size == 4)
+	else if (stack_a->size == 4 && (ft_is_sorted(stack_a, count) != 0))
 		stack_of_four(stack_a, stack_b);
 	else if (stack_a->size >= 5)
 		ksort(stack_a, stack_b, count);
@@ -65,9 +89,9 @@ int	main(int argc, char **argv)
 	if (check_digits(argc, argv) == -1)
 		ft_simple_error("Error");
 	count = check_digits(argc, argv);
-	if (parse_argum(argc, argv, count) == NULL)
-		ft_simple_error("Error");
 	numbers = parse_argum(argc, argv, count);
+	if (numbers == NULL)
+		ft_simple_error("Error");
 	if (count <= 0 || is_not_duplicate(numbers, count) == -1)
 		ft_error_and_free(numbers);
 	stack_a = init_stack('a');

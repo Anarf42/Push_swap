@@ -35,7 +35,7 @@ PUSH_OBJ_FILE = $(PUSH_SRC_DIR:$(DIR_SRCS)/%.c=$(DIR_OBJS)/%.o)
 # --- compiler and tools --- #
 
 CC		=	cc 
-FLAGS	=	-Wall -Werror -Wextra -g -fsanitize=address
+FLAGS	=	-Wall -Werror -Wextra -g 
 INCLUDE	=	-I $(DIR_INCL)
 AR		=	ar
 RM		=	rm -rf

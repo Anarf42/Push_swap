@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 19:09:18 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/19 23:39:35 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:30:54 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,14 @@ void	ksort_2(t_stack *a, t_stack *b, int size)
 void	ksort(t_stack *a, t_stack *b, int size)
 {
 	index_stack(a, size);
-	if (size == 5)
-		stack_of_five(a, b);
-	else
+	if (ft_is_sorted(a, size))
 	{
-		ksort_1(a, b, size);
-		ksort_2(a, b, size);
+		if (size == 5)
+			stack_of_five(a, b);
+		else
+		{
+			ksort_1(a, b, size);
+			ksort_2(a, b, size);
+		}
 	}
 }

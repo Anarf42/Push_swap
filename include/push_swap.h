@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:00:39 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/19 23:51:00 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:37:23 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,8 @@ void	stack_of_five(t_stack *stack_a, t_stack *stack_b);
 
 /* -- parse_arg  -- */
 int		*parse_argum(int argc, char **argv, int count);
+
+/* -- utils2 -- */
+int		ft_is_sorted(t_stack *stack, int size);
 
 #endif

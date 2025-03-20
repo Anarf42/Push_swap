@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 19:14:14 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/19 23:18:27 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:36:34 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	stack_of_five(t_stack *stack_a, t_stack *stack_b)
 	}
 	else if (stack_b->head->value < stack_b->head->next->value
 		&& stack_b->size > 1)
-	{			
+	{
 		swap(stack_b);
 		push(stack_a, stack_b);
 		push(stack_a, stack_b);
