@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 00:29:41 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/19 23:50:43 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:20:30 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ static	void	ft_skip_space_and_sign(char *str, size_t *i, int *sign)
 	while ((str[*i] >= 9 && str[*i] <= 13) || str[*i] == 32)
 		(*i)++;
 	if (str[*i] == '-' || str[*i] == '+')
+	{
 		if (str[*i] == '-')
 			*sign = -1;
+		(*i)++;
+	}
 }
 
-static	int	ft_atol(char *str)
+static	long	ft_atol(char *str)
 {
 	size_t		i;
 	int			sign;
@@ -43,11 +46,12 @@ static	int	check_range(char **string_numbers, int *numbers)
 	i = 0;
 	while (string_numbers[i])
 	{
-		if (ft_atol(string_numbers[i]) > INT_MAX
+		if (ft_atol(string_numbers[i]) >= 2147483648
 			|| ft_atol(string_numbers[i]) < INT_MIN)
 		{
 			free_split(string_numbers);
 			free(numbers);
+			return (1);
 		}
 		i++;
 	}
@@ -72,7 +76,8 @@ int	*parse_argum(int argc, char **argv, int count)
 		string_numbers = ft_split(argv[i], ' ');
 		if (!string_numbers)
 			return (NULL);
-		check_range(string_numbers, numbers);
+		if (check_range(string_numbers, numbers))
+			return (NULL);
 		k = 0;
 		while (string_numbers[k])
 			numbers[j++] = ft_atoi(string_numbers[k++]);

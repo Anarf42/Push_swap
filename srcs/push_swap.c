@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:54:32 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/20 15:07:03 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:19:36 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 		ft_simple_error("Error");
 	count = check_digits(argc, argv);
 	if (parse_argum(argc, argv, count) == NULL)
-		ft_putendl_fd("Error", 2);
+		ft_simple_error("Error");
 	numbers = parse_argum(argc, argv, count);
 	if (count <= 0 || is_not_duplicate(numbers, count) == -1)
 		ft_error_and_free(numbers);
