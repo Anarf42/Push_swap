@@ -6,7 +6,7 @@
 /*   By: anruiz-d <anruiz-d@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 00:29:41 by anruiz-d          #+#    #+#             */
-/*   Updated: 2025/03/20 17:20:30 by anruiz-d         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:31:39 by anruiz-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static	int	check_range(char **string_numbers, int *numbers)
 	while (string_numbers[i])
 	{
 		if (ft_atol(string_numbers[i]) >= 2147483648
-			|| ft_atol(string_numbers[i]) < INT_MIN)
+			|| ft_atol(string_numbers[i]) <= -2147483649)
 		{
 			free_split(string_numbers);
 			free(numbers);
